@@ -80,6 +80,7 @@ const SidebarLink = ({
         } hover:text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
           isActive ? "text-white bg-blue-200" : ""
         }`}
+        title={label}
       >
         <Icon className="w-6 h-6 !text-gray-700" />
         <span
