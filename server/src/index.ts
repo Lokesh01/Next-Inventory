@@ -8,6 +8,7 @@ import colors from "colors";
 /* ROUTE IMPORTS */
 import dashboardRoutes from "./routes/dashBoardRoutes";
 import productRoutes from "./routes/productRoutes";
+import userRoutes from "./routes/userRoutes";
 
 //* Configuration
 dotenv.config();
@@ -29,6 +30,7 @@ app.use(cors());
 //* Routes
 app.use("/dashboard", dashboardRoutes);
 app.use("/products", productRoutes);
+app.use("/users", userRoutes);
 
 //* Server
 const PORT = process.env.PORT || 3001;
