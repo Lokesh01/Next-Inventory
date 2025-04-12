@@ -31,7 +31,7 @@ const Settings = () => {
       <Header name="User Settings" />
       <div className="overflow-x-auto mt-5 ">
         <table className="min-w-full bg-white rounded-lg">
-          <thead className="bg-gray-800 text-white">dd
+          <thead className="bg-gray-800 text-white">
             <tr>
               <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                 Settings
