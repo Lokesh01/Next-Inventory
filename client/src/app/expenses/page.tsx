@@ -5,6 +5,10 @@ import {
   useGetExpensesByCategoryQuery,
 } from "@/state/api";
 import { useMemo, useState } from "react";
+import Header from "../(components)/Header";
+import { Cell, Legend, Pie, ResponsiveContainer } from "recharts";
+import { PieChart } from "lucide-react";
+import { Tooltip } from "@mui/material";
 
 type AggregatedDataItem = {
   name: string;
@@ -78,7 +82,104 @@ const Expenses = () => {
     );
   }
 
-  return <div>expenses</div>;
+  return (
+    <div>
+      <div className="mb-5">
+        <Header name="Expenses" />
+        <p className="text-sm text-gray-500">
+          A visual representation of your expenses over time
+        </p>
+      </div>
+
+      {/* Filters */}
+      <div className="flex flex-col md:flex-row justify-between gap-4">
+        <div className="w-full md:w-1/3 bg-white shadow rounded-lg p-6">
+          <h3 className="text-lg font-semibold mb-4">
+            Filter by Category and Date
+          </h3>
+          <div className="space-y-4">
+            {/* Category */}
+            <div>
+              <label htmlFor="category" className={classNames.label}>
+                Category
+              </label>
+              <select
+                name="category"
+                id="category"
+                className={classNames.selectInput}
+                defaultValue="All"
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                <option>All</option>
+                <option>Office</option>
+                <option>Professional</option>
+                <option>Salaries</option>
+              </select>
+            </div>
+
+            {/* Start Date */}
+            <div>
+              <label htmlFor="start-date" className={classNames.label}>
+                start Date
+              </label>
+              <input
+                type="date"
+                id="start-date"
+                name="start-date"
+                className={classNames.selectInput}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+
+            {/* End Date */}
+            <div>
+              <label htmlFor="end-date" className={classNames.label}>
+                End Date
+              </label>
+              <input
+                type="date"
+                id="end-date"
+                name="end-date"
+                className={classNames.selectInput}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* PIE Chart */}
+        <div className="flex-grow bg-white shadow rounded-lg p-4 md:p-6">
+          <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
+              <Pie
+                data={aggregatedData}
+                cx="50%"
+                cy="50%"
+                label
+                outerRadius={150}
+                fill="#8884d8"
+                dataKey="amount"
+                onMouseEnter={(_, index) => setActiveIndex(index)}
+              >
+                {aggregatedData.map(
+                  (entry: AggregatedDataItem, index: number) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={
+                        index === activeIndex ? "rgb(29, 78, 216)" : entry.color
+                      }
+                    />
+                  )
+                )}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Expenses;
