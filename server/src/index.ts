@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import colors from "colors"; 
+import colors from "colors";
 /* ROUTE IMPORTS */
 import dashboardRoutes from "./routes/dashBoardRoutes";
 import productRoutes from "./routes/productRoutes";
@@ -35,7 +35,7 @@ app.use("/users", userRoutes);
 app.use("/expenses", expenseRoutes);
 
 //* Server
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
+const PORT = Number(process.env.PORT) || 3001;
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port: ${PORT}`.green);
 });
