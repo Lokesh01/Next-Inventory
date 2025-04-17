@@ -128,7 +128,7 @@ const Sidebar = () => {
             isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
-          Next-Stock
+          NextStock
         </h1>
 
         <button
