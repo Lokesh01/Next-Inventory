@@ -12,6 +12,7 @@ import {
   SlidersHorizontal,
   User,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useDispatch } from "react-redux";
@@ -115,13 +116,19 @@ const Sidebar = () => {
           isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
-        <div>logo</div>
+        <Image
+          src="https://s3-inventory-dash.s3.ap-south-1.amazonaws.com/logo.png"
+          alt="next-stock-logo"
+          width={27}
+          height={27}
+          className="rounded-full object-cover h-full"
+        />
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
-          Lokesh
+          Next-Stock
         </h1>
 
         <button

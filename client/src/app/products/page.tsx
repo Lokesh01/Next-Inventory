@@ -4,7 +4,6 @@ import { useCreateProductMutation, useGetProductsQuery } from "@/state/api";
 import { PlusCircleIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import Header from "../(components)/Header";
-import { dividerClasses } from "@mui/material";
 import Image from "next/image";
 import Rating from "../(components)/Ratings";
 import CreateProductModal from "./CreateProductModal";
@@ -78,8 +77,15 @@ const Products = () => {
               className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
             >
               <div className="flex flex-col items-center">
-                {/* <Image/> */}
-                <p>image</p>
+                <Image
+                  src={`https://s3-inventory-dash.s3.ap-south-1.amazonaws.com/product${
+                    Math.floor(Math.random() * 3) + 1
+                  }.png`}
+                  alt={product.name}
+                  width={150}
+                  height={150}
+                  className="mb-3 rounded-2xl w-36 h-36"
+                />
                 <h3 className="text-lg text-gray-900 font-semibold">
                   {product.name}
                 </h3>
