@@ -43,19 +43,19 @@ Easily track stock, manage products, and streamline your warehouse operations.
 
 ---
 
-### 📊 Settings
+### ⚙️ Settings Section
 
 <img src="screenshots/settings.png" width="100%"/>
 
 ---
 
-### ⚙️ Settings Section
+### 💸 Expenses Section
 
 <img src="screenshots/expenses.png" width="100%"/>
 
 ---
 
-### 💸 Expenses Section
+### Dark Theme
 
 <img src="screenshots/darkmode.png" width="100%"/>
 
